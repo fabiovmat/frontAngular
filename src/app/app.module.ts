@@ -12,9 +12,7 @@ import {HttpClientModule} from '@angular/common/http'; /*req ajax*/
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
-
-
+    FormsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
