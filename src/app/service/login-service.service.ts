@@ -11,7 +11,7 @@ export class LoginServiceService {
 
   login(usuario){
 
-  console.info('User' + usuario.login )
+  console.info("User " + usuario.login )
 
 }
 
