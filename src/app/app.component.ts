@@ -8,16 +8,7 @@ import { LoginServiceService } from './service/login-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular';
+  title = 'Login Test Page';
 
-
-  usuario = {login: '', senha: ''};
-
-  constructor(private loginService :LoginServiceService){}
-
-  public login(){
-
-    this.loginService.login(this.usuario);
-
-  }
+ 
 }

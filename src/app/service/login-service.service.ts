@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppConstants } from '../app-constants';
 
 
 @Injectable({
@@ -7,11 +9,25 @@ import { Injectable } from '@angular/core';
 })
 export class LoginServiceService {
 
-  constructor(private http: HttpClient) { }
+  constructor (private http: HttpClient, private router:Router) { }
 
   login(usuario){
+    
+ return this.http.post(AppConstants.baseLogin,JSON.stringify(usuario)).subscribe(data => {
 
-  console.info("User " + usuario.login )
+  /*Retorno Http */
+  var token = JSON.parse(JSON.stringify(data)).Authorization.split(' ')[1];
+
+  localStorage.setItem("token",token);
+  //console.info("token: " + localStorage.getItem("token")); //Imprime o token no console ---nao colocar em prod!
+
+  this.router.navigate(['home']);
+
+ }, error => {
+    console.error("Erro ao fazer login");
+    alert('Acesso negado, verifique o login e a senha');
+    
+ });
 
 }
 
