@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component'; /*requisicoes ajax*/
 import {  Routes, RouterModule } from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import { LoginComponent } from './login/login.component' ;
+import { HttpInterceptorModule } from './service/header-interceptor.service';
 
 export const appRouters:Routes = [
 
@@ -33,7 +34,8 @@ export const routes : ModuleWithProviders<RouterModule> = RouterModule.forRoot(a
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    routes   
+    routes,
+    HttpInterceptorModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
